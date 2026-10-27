@@ -1,0 +1,27 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8');
+const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+new vm.Script(script);new vm.Script(fs.readFileSync('sw.js','utf8'));
+const els=new Map();const el=id=>{if(!els.has(id))els.set(id,{innerHTML:'',textContent:'',value:'',style:{},classList:{toggle(){},remove(){},add(){}},addEventListener(){}});return els.get(id)};
+let urls=[];
+const fixtures=[{id:'before',date:'2026-10-26T13:59:59Z'},{id:'start',date:'2026-10-26T14:00:00Z'},{id:'end',date:'2026-10-27T13:59:59Z'},{id:'after',date:'2026-10-27T14:00:00Z'}];
+const ctx=vm.createContext({Intl,Date,Map,Number,JSON,String,console,localStorage:{getItem:()=>JSON.stringify(['football','nfl'])},document:{getElementById:el,querySelectorAll:()=>[],addEventListener(){}},setInterval(){},fetch:async url=>{urls.push(url);return {ok:true,json:async()=>({events:fixtures})}}});
+vm.runInContext(script,ctx);
+(async()=>{
+await new Promise(r=>setImmediate(r));
+assert.equal(vm.runInContext('state.league',ctx),'nba');
+assert.equal(vm.runInContext("localDate(new Date('2026-10-26T14:00:00Z'))",ctx),'2026-10-27');
+assert.equal(vm.runInContext("adjacentDate('2027-01-01',-1)",ctx),'2026-12-31');
+assert.equal(vm.runInContext("adjacentDate('2028-02-28',1)",ctx),'2028-02-29');
+urls=[];vm.runInContext("state.date='2026-10-27'",ctx);await vm.runInContext('load(true)',ctx);
+assert.equal(urls.length,3);assert.deepEqual(urls.map(u=>u.match(/dates=(\d+)/)[1]),['20261026','20261027','20261028']);
+assert.equal(vm.runInContext('state.events.map(e=>e.id).join() ',ctx),'start,end');
+const markup=el('mobileSports').innerHTML;
+assert.equal((markup.split('<div class="more-sports')[0].match(/<button/g)||[]).length,8);
+for(const label of ['NBA','NFL','CFB','NCAA Men','NRL','Soccer','NHL','More'])assert(markup.split('<div class="more-sports')[0].includes('>'+label+'<'));
+assert(markup.includes('more-sports hidden'));
+assert(vm.runInContext("time('2026-10-26T14:00:00Z')",ctx).includes('12:00'));
+assert(html.includes('grid-template-columns:repeat(4,minmax(0,1fr))'));
+assert(!html.includes('Times use your device timezone'));
+console.log('PASS: syntax, NBA startup, compact picker, hidden extras, Brisbane midnight filtering, adjacent dates, deduplication, leap/year navigation, Brisbane time');
+})().catch(e=>{console.error(e);process.exitCode=1});
