@@ -1,0 +1,333 @@
+{
+  "boxscore": {
+    "teams": [
+      {
+        "team": {
+          "id": "93",
+          "uid": "s:600~t:93",
+          "slug": "esp.athletic_club",
+          "location": "Athletic Club",
+          "name": "Athletic Club",
+          "abbreviation": "ATH",
+          "displayName": "Athletic Club",
+          "shortDisplayName": "Athletic",
+          "color": "C8142F",
+          "alternateColor": "000000",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "uniform": {
+            "type": "home",
+            "color": "ff0000",
+            "alternateColor": "ffffff"
+          }
+        },
+        "statistics": [
+          {
+            "name": "foulsCommitted",
+            "displayValue": "11",
+            "label": "Fouls"
+          },
+          {
+            "name": "yellowCards",
+            "displayValue": "1",
+            "label": "Yellow Cards"
+          },
+          {
+            "name": "redCards",
+            "displayValue": "0",
+            "label": "Red Cards"
+          },
+          {
+            "name": "offsides",
+            "displayValue": "0",
+            "label": "Offsides"
+          },
+          {
+            "name": "wonCorners",
+            "displayValue": "2",
+            "label": "Corner Kicks"
+          },
+          {
+            "name": "saves",
+            "displayValue": "1",
+            "label": "Saves"
+          },
+          {
+            "name": "possessionPct",
+            "displayValue": "62.5",
+            "label": "Possession"
+          },
+          {
+            "name": "totalShots",
+            "displayValue": "11",
+            "label": "SHOTS"
+          },
+          {
+            "name": "shotsOnTarget",
+            "displayValue": "4",
+            "label": "ON GOAL"
+          },
+          {
+            "name": "shotPct",
+            "displayValue": "0.4",
+            "label": "On Target %"
+          },
+          {
+            "name": "penaltyKickGoals",
+            "displayValue": "0",
+            "label": "Penalty Goals"
+          },
+          {
+            "name": "penaltyKickShots",
+            "displayValue": "0",
+            "label": "Penalty Kicks Taken"
+          },
+          {
+            "name": "accuratePasses",
+            "displayValue": "517",
+            "label": "Accurate Passes"
+          },
+          {
+            "name": "totalPasses",
+            "displayValue": "588",
+            "label": "Passes"
+          },
+          {
+            "name": "passPct",
+            "displayValue": "0.9",
+            "label": "Pass Completion %"
+          },
+          {
+            "name": "accurateCrosses",
+            "displayValue": "1",
+            "label": "Accurate Crosses"
+          },
+          {
+            "name": "totalCrosses",
+            "displayValue": "12",
+            "label": "Crosses"
+          },
+          {
+            "name": "crossPct",
+            "displayValue": "0.1",
+            "label": "Cross %"
+          },
+          {
+            "name": "totalLongBalls",
+            "displayValue": "56",
+            "label": "Long Balls"
+          },
+          {
+            "name": "accurateLongBalls",
+            "displayValue": "38",
+            "label": "Accurate Long Balls"
+          },
+          {
+            "name": "longballPct",
+            "displayValue": "0.7",
+            "label": "Long Balls %"
+          },
+          {
+            "name": "blockedShots",
+            "displayValue": "3",
+            "label": "Blocked Shots"
+          },
+          {
+            "name": "effectiveTackles",
+            "displayValue": "7",
+            "label": "Effective Tackles"
+          },
+          {
+            "name": "totalTackles",
+            "displayValue": "15",
+            "label": "Tackles"
+          },
+          {
+            "name": "tacklePct",
+            "displayValue": "0.5",
+            "label": "Tackle %"
+          },
+          {
+            "name": "interceptions",
+            "displayValue": "8",
+            "label": "Interceptions"
+          },
+          {
+            "name": "effectiveClearance",
+            "displayValue": "15",
+            "label": "Effective Clearances"
+          },
+          {
+            "name": "totalClearance",
+            "displayValue": "15",
+            "label": "Clearances"
+          }
+        ],
+        "displayOrder": 1,
+        "homeAway": "home"
+      },
+      {
+        "team": {
+          "id": "2922",
+          "uid": "s:600~t:2922",
+          "slug": "esp.getafe",
+          "location": "Getafe",
+          "name": "Getafe",
+          "abbreviation": "GET",
+          "displayName": "Getafe",
+          "shortDisplayName": "Getafe",
+          "color": "0000ff",
+          "alternateColor": "7F1734",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
+          "uniform": {
+            "type": "home",
+            "color": "000099"
+          }
+        },
+        "statistics": [
+          {
+            "name": "foulsCommitted",
+            "displayValue": "15",
+            "label": "Fouls"
+          },
+          {
+            "name": "yellowCards",
+            "displayValue": "3",
+            "label": "Yellow Cards"
+          },
+          {
+            "name": "redCards",
+            "displayValue": "1",
+            "label": "Red Cards"
+          },
+          {
+            "name": "offsides",
+            "displayValue": "2",
+            "label": "Offsides"
+          },
+          {
+            "name": "wonCorners",
+            "displayValue": "4",
+            "label": "Corner Kicks"
+          },
+          {
+            "name": "saves",
+            "displayValue": "0",
+            "label": "Saves"
+          },
+          {
+            "name": "possessionPct",
+            "displayValue": "37.5",
+            "label": "Possession"
+          },
+          {
+            "name": "totalShots",
+            "displayValue": "7",
+            "label": "SHOTS"
+          },
+          {
+            "name": "shotsOnTarget",
+            "displayValue": "1",
+            "label": "ON GOAL"
+          },
+          {
+            "name": "shotPct",
+            "displayValue": "0.1",
+            "label": "On Target %"
+          },
+          {
+            "name": "penaltyKickGoals",
+            "displayValue": "0",
+            "label": "Penalty Goals"
+          },
+          {
+            "name": "penaltyKickShots",
+            "displayValue": "0",
+            "label": "Penalty Kicks Taken"
+          },
+          {
+            "name": "accuratePasses",
+            "displayValue": "274",
+            "label": "Accurate Passes"
+          },
+          {
+            "name": "totalPasses",
+            "displayValue": "344",
+            "label": "Passes"
+          },
+          {
+            "name": "passPct",
+            "displayValue": "0.8",
+            "label": "Pass Completion %"
+          },
+          {
+            "name": "accurateCrosses",
+            "displayValue": "3",
+            "label": "Accurate Crosses"
+          },
+          {
+            "name": "totalCrosses",
+            "displayValue": "16",
+            "label": "Crosses"
+          },
+          {
+            "name": "crossPct",
+            "displayValue": "0.2",
+            "label": "Cross %"
+          },
+          {
+            "name": "totalLongBalls",
+            "displayValue": "57",
+            "label": "Long Balls"
+          },
+          {
+            "name": "accurateLongBalls",
+            "displayValue": "29",
+            "label": "Accurate Long Balls"
+          },
+          {
+            "name": "longballPct",
+            "displayValue": "0.5",
+            "label": "Long Balls %"
+          },
+          {
+            "name": "blockedShots",
+            "displayValue": "1",
+            "label": "Blocked Shots"
+          },
+          {
+            "name": "effectiveTackles",
+            "displayValue": "8",
+            "label": "Effective Tackles"
+          },
+          {
+            "name": "totalTackles",
+            "displayValue": "13",
+            "label": "Tackles"
+          },
+          {
+            "name": "tacklePct",
+            "displayValue": "0.6",
+            "label": "Tackle %"
+          },
+          {
+            "name": "interceptions",
+            "displayValue": "8",
+            "label": "Interceptions"
+          },
+          {
+            "name": "effectiveClearance",
+            "displayValue": "34",
+            "label": "Effective Clearances"
+          },
+          {
+            "name": "totalClearance",
+            "displayValue": "34",
+            "label": "Clearances"
+          }
+        ],
+        "displayOrder": 2,
+        "homeAway": "away"
+      }
+    ]
+  }
+}
