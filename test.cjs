@@ -34,6 +34,19 @@ ctx.fetch=async url=>({ok:true,json:async()=>({events:[{id:'later',date:'2026-11
 vm.runInContext("state.date=localDate(new Date());state.filter='upcoming';cache.clear()",ctx);
 await vm.runInContext('load(true)',ctx);
 assert.equal(vm.runInContext('state.events.map(e=>e.id).join()',ctx),'next');
+// Reduced player fixture from ESPN summary event 401882828.
+const stat=(name,value,abbreviation,displayName)=>({name,value,displayValue:String(value),abbreviation,displayName});
+const player=(name,position,stats,extra={})=>({athlete:{displayName:name},position:{abbreviation:position},starter:true,stats,...extra});
+ctx.playerFixture={rosters:[{team:{displayName:'Sevilla'},roster:[player('Felix Correia','LM',[stat('totalGoals',1,'G','Total Goals'),stat('goalAssists',0,'A','Assists')]),player('Isaac Romero','CF-L',[stat('totalGoals',1,'G','Total Goals')]),player('Odisseas Vlachodimos','G',[stat('goalsConceded',0,'GA','Goals Against'),stat('saves',2,'SV','Saves')]),player('Unused bench','F',[stat('appearances',0,'APP','Appearances')],{starter:false}),player('Substitute','F',[stat('totalGoals',0,'G','Total Goals')],{starter:false,subbedIn:true})]},{team:{displayName:'Osasuna'},roster:[player('Aitor Fernández','G',[stat('goalsConceded',2,'GA','Goals Against'),stat('saves',5,'SV','Saves')])]}]};
+const playerHTML=vm.runInContext('soccerBoxScoreHTML(playerFixture)',ctx);
+for(const name of ['Sevilla','Osasuna','Felix Correia','Isaac Romero','Odisseas Vlachodimos','Aitor Fernández','Substitute'])assert(playerHTML.includes(name));
+assert(!playerHTML.includes('Unused bench'));assert(playerHTML.includes('Goalkeepers'));assert(playerHTML.includes('Outfield players'));assert(playerHTML.includes('>0<'));assert(playerHTML.includes('>5<'));assert(playerHTML.includes('—'));
+assert.equal(vm.runInContext('soccerBoxScoreHTML({})',ctx),'');
+vm.runInContext("state.sport='soccer';state.league='esp.1';state.selected={id:'401882828',date:'2026-10-26T20:00Z'};state.details=playerFixture;state.detailTab='stats';renderDetails()",ctx);
+assert(el('modalBody').innerHTML.includes('Felix Correia'));
+for(const id of ['sportPicker','datePicker','leaguePicker'])assert(html.includes('id="'+id+'" open'));
+assert(!html.includes('.open=false'));
+console.log('PASS: soccer roster player stats, both teams, goalkeeper/outfield tables, substitutes, zeros, missing values, Box score integration and expanded defaults');
 console.log('PASS: La Liga match stats and zero values, empty stats fallback, collapsible controls, removed Final filter, next scheduled day beyond today');
 console.log('PASS: syntax, NBA startup, compact picker, hidden extras, Brisbane midnight filtering, adjacent dates, deduplication, leap/year navigation, Brisbane time');
 })().catch(e=>{console.error(e);process.exitCode=1});
